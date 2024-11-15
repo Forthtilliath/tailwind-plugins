@@ -23,7 +23,32 @@ test('addBase', async () => {
   expect(result.css).toContain('--tw-text-shadow-color: #000;');
 });
 
-test('addUtilities', async () => {
+test('addBase with user options', async () => {
+  const config = {
+    plugins: [textShadowPlugin({
+      defaultOffsetX: '1px',
+      defaultOffsetY: '2px',
+      defaultBlur: '3px',
+      defaultColor: '#f00',
+    })],
+    content: [
+      {
+        raw: String.raw`🫣`,
+      },
+    ],
+    corePlugins: {
+      preflight: true,
+    },
+  } satisfies Config;
+
+  const result = await run(config, '@tailwind base');
+  expect(result.css).toContain('--tw-text-shadow-x: 1px;');
+  expect(result.css).toContain('--tw-text-shadow-y: 2px;');
+  expect(result.css).toContain('--tw-text-shadow-blur: 3px;');
+  expect(result.css).toContain('--tw-text-shadow-color: #f00;');
+});
+
+test('addUtilities base & outline', async () => {
   const config = {
     plugins: [textShadowPlugin()],
     content: [
@@ -47,7 +72,7 @@ test('addUtilities', async () => {
     `);
 });
 
-test('matchUtilities', async () => {
+test('matchUtilities x, y & blur', async () => {
   const config = {
     plugins: [textShadowPlugin()],
     content: [
@@ -75,7 +100,7 @@ test('matchUtilities', async () => {
     `);
 });
 
-test('matchUtilities text-shadow-colors', async () => {
+test('matchUtilities colors', async () => {
   const config = {
     plugins: [textShadowPlugin()],
     content: [
@@ -99,7 +124,7 @@ test('matchUtilities text-shadow-colors', async () => {
     `);
 });
 
-test('matchUtilities new ', async () => {
+test('matchUtilities new from tailwind config', async () => {
   const config = {
     plugins: [textShadowPlugin()],
     content: [
