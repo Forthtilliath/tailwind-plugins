@@ -57,9 +57,6 @@
     "postrelease": "git push --follow-tags origin main && npm publish"
   },
   "type": "module",
-  "dependencies": {
-    "@babel/preset-typescript": "^7.26.0"
-  },
   "directories": {
     "test": "tests"
   }
