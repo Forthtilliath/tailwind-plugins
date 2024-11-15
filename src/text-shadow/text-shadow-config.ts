@@ -1,9 +1,5 @@
 import { fromTheme, type Config } from 'tailwind-merge';
-import {
-  isArbitraryLength,
-  isTshirtSize,
-} from 'tailwind-merge/src/lib/validators';
-// import { isArbitraryLength, isTshirtSize } from '../helpers/validators';
+import { isArbitraryLength, isTshirtSize } from '../helpers/validators';
 
 const colors = fromTheme('colors');
 const spacing = fromTheme('spacing');
