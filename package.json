@@ -9,6 +9,7 @@
   "main": "index.js",
   "devDependencies": {
     "@types/eslint": "^9.6.1",
+    "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.13",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
@@ -26,6 +27,7 @@
     "release-please": "^16.15.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.15",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.14.0",
@@ -52,8 +54,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write --log-level=error . !CHANGELOG.md",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
     "release": "release-please",
     "postrelease": "git push --follow-tags origin main && npm publish"
   },
