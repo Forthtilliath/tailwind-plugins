@@ -1,7 +1,7 @@
 import { Config } from 'tailwindcss';
 import { expect, test } from 'vitest';
-import { examplePlugin } from './example';
 import { expectCss, run } from './helpers';
+import { examplePlugin } from '../src/example';
 
 test('addBase', async () => {
   const config = {

@@ -1,7 +1,7 @@
 import { Config } from 'tailwindcss';
 import { expect, test } from 'vitest';
 import { expectCss, run } from './helpers';
-import { textShadowPlugin } from './text-shadow';
+import { textShadowPlugin } from '../src/text-shadow';
 
 test('addBase', async () => {
   const config = {
